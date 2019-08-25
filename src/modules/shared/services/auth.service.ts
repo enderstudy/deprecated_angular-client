@@ -10,7 +10,7 @@ export class AuthService {
   ) {}
 
   public login(email: string, password: string): Observable<any> {
-    return this.http.post('//localhost:12000/login', {email, password});
+    return this.http.post('//localhost:5000/api/auth/login', {email, password});
   }
 
   public refresh(): Observable<any>  {
@@ -18,7 +18,11 @@ export class AuthService {
     headers = headers.set('X-Refresh-Token', this.getCookie('es_cli_ref'));
     headers = headers.set('Authorization', `Bearer ${this.getCookie('es_cli_jwt')}`);
 
-    return this.http.post('//localhost:12000/refresh', {}, {headers});
+    return this.http.post('//localhost:5000/refresh', {}, {headers});
+  }
+
+  public register(email: string, password: string, username: string): Observable<any> {
+    return this.http.post('//localhost:5000/api/users', {email, password, username});
   }
 
   public getCookie(name: string) {
