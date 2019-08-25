@@ -1,26 +1,53 @@
+@import '~src/_variables.scss';
+
 .navbar {
-  background: linear-gradient(#2082DD, #1864AA);
-  color: #FFF;
-
-  .nav-item.active {
-    a.nav-link {   
-      font-weight: bold;
-      color: #DD2052;
+    display: flex;
+    padding: 15px 30px;
+    align-items: center;
+    box-shadow: 0px 2px 10gb rgba(59,84,169,0);
+    transition: box-shadow 0.2s ease;
+    
+    &:hover {
+        background: white;
+        box-shadow: 0px 2px 10px rgba(59,84,169,0.075);
     }
-  }
 
-  a.nav-link {
-    color: white;
-    transition: all 0.2s ease;
-  }
+    .navbar--brand {
+        display: flex;
+        align-items: center;
+        min-width: 165px;
 
-  a.navbar-brand {
-    color: white;
-  }
-}
+        .brand--logo {
+            margin-right: 12px;
+        }
 
-.card {
-  .card-footer {
-    background: transparent;
-  }
+        .brand--text {
+            text-transform: uppercase;
+            font-weight: 200;
+            font-size: 24px;
+            color: $purple;
+        }
+    }
+
+    .navbar--nav-items {
+        list-style: none;
+
+        .nav-items--item {
+            display: inline-block;
+            margin-right: 24px;
+
+            a {
+                font-size: 16px;
+                color: #555;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-weight: 300;
+                transition: color 0.15s ease;
+
+                &:hover {
+                    color: $purple;
+                }
+            }
+        }
+    }
 }
