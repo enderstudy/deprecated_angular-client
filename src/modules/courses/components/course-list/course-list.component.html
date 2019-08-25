@@ -25,31 +25,10 @@
         <div [class]="'list-contents--course-card ' + contentDisplayMode" *ngFor="let course of courses">
           <img class="course-card--image" src="https://picsum.photos/500/350" />
           <div class="course-card--content">
-            <h2 class="course-card--title">Build a to-do list API with Zend Framework 3</h2>
-            <p class="course-card--teaser">In this course we'll be learning our way around Zend Framework 3 and the Doctrine ORM to build a RESTful API.</p>
+            <h2 class="course-card--title">{{ course.title }}</h2>
+            <p class="course-card--teaser">{{ course.description }}</p>
           </div>
         </div>
-        <!-- <div class="list-contents--course-card">
-          <img class="course-card--image" src="https://picsum.photos/500/350" />
-          <div class="course-card--content">
-            <h2 class="course-card--title">Build a to-do list API with Zend Framework 3</h2>
-            <p class="course-card--teaser">In this course we'll be learning our way around Zend Framework 3 and the Doctrine ORM to build a RESTful API.</p>
-          </div>
-        </div>
-        <div class="list-contents--course-card">
-          <img class="course-card--image" src="https://picsum.photos/500/350" />
-          <div class="course-card--content">
-            <h2 class="course-card--title">Build a to-do list API with Zend Framework 3</h2>
-            <p class="course-card--teaser">In this course we'll be learning our way around Zend Framework 3 and the Doctrine ORM to build a RESTful API.</p>
-          </div>
-        </div>
-        <div class="list-contents--course-card">
-          <img class="course-card--image" src="https://picsum.photos/500/350" />
-          <div class="course-card--content">
-            <h2 class="course-card--title">Build a to-do list API with Zend Framework 3</h2>
-            <p class="course-card--teaser">In this course we'll be learning our way around Zend Framework 3 and the Doctrine ORM to build a RESTful API.</p>
-          </div>
-        </div> -->
       </section>
     </main>
 </div>
