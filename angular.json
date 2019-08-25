@@ -122,5 +122,10 @@
         }
       }
     }},
-  "defaultProject": "Enderstudy-Api-TestClient"
+  "defaultProject": "Enderstudy-Api-TestClient",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
