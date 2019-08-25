@@ -1,13 +1,17 @@
 @import '~src/_variables.scss';
 
 .filters {
-    padding: 15px 30px;
+    display: flex;
+    padding: 15px;
     flex: 0.15;
+    flex-direction: column;
 }
 
 .content {
-    padding: 15px 30px;
+    display: flex;
+    padding: 15px;
     flex: 1;
+    flex-direction: column;
 }
 
 .filters--input-group {
@@ -95,6 +99,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    justify-items: space-between;
 
     .list-contents--course-card {
         display: flex;
@@ -108,7 +113,7 @@
         border-radius: 4px;
 
         &.grid {
-            flex: 0.5;
+            flex: 0.33;
             flex-direction: column;    
         }
 
@@ -130,6 +135,7 @@
 
         .course-card--image {
             object-fit: cover;
+            max-width: 100%;
         }
 
         .course-card--teaser {
