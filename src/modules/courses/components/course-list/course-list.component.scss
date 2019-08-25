@@ -1,0 +1,133 @@
+@import '~src/_variables.scss';
+
+.filters {
+    padding: 15px 30px;
+    flex: 0.15;
+}
+
+.content {
+    padding: 15px 30px;
+    flex: 1;
+}
+
+.filters--input-group {
+    margin-bottom: 12px;
+
+    .input-group--label {
+        display: block;
+        width: 100%;
+        margin-bottom: 2px;
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 500;
+        color: #777;
+    }
+
+    .input-group--input {
+        width: 100%;
+        background: #FFF;
+        border: 1px solid #EBEBEB;
+        border-radius: 4px;
+        padding: 8px 16px;
+        transition: border-color 0.3s;
+
+        &:focus {
+            border-color: lighten($purple, 33%);
+        }
+    }
+}
+
+.filters--tag-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .tag-list--item {
+        background: #F8F8F8;
+        display: flex;
+        padding: 6px 12px;
+        margin-bottom: 6px;
+        border: 1px solid darken(#F8F8F8, 2.5%);
+
+        .item--text  {
+            flex-grow: 1;
+            color: $purple;
+        }
+
+        .item--input {
+            flex-shrink: 1;
+            justify-content: center;
+        }
+    }
+}
+
+.content--list-controls {
+    display: flex;
+    padding: 16px 0px;
+    border-bottom: 1px solid #EBEBEB;
+
+    .controls--display-modes {
+        display: flex;
+
+        .display-modes--label {
+            align-self: center;
+            width: 100%;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 500;
+            color: #777;
+            margin-right: 14px;
+        }
+
+        .fas {
+            cursor: pointer;
+            margin-right: 20px;
+
+            &.active {
+                color: $purple;
+            }
+        }
+    }
+}
+
+.content--list-contents {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .list-contents--course-card {
+        display: flex;
+        margin-right: 12px;
+        margin-top: 24px;
+        padding: 24px;
+        flex: 1;
+        background: #FFF;
+        box-shadow: 0px 2px 10px rgba(59,84,169,0.025);
+        transition: box-shadow 0.25s ease;
+        border-radius: 4px;
+
+        &.grid {
+            flex: 0.5;
+            flex-direction: column;    
+        }
+
+        &.list {
+            flex: auto;
+            flex-direction: row;
+        }
+
+        &:hover {
+            background: white;
+            box-shadow: 0px 2px 10px rgba(59,84,169,0.1);
+        }
+
+        .course-card--image {
+            object-fit: cover;
+        }
+
+        .course-card--teaser {
+            line-height: 1.4em;
+        }
+    }
+}

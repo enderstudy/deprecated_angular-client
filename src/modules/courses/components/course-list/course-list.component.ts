@@ -6,12 +6,14 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
-  styleUrls: ['./course-list.component.css']
+  styleUrls: ['./course-list.component.scss']
 })
 export class CourseListComponent implements OnInit {
 
   public courses: Course[];
   public loading: boolean;
+
+  public contentDisplayMode: String = "grid";
 
   constructor(
       private courseService: CourseService,
@@ -32,5 +34,9 @@ export class CourseListComponent implements OnInit {
     console.log(course);
     this.courseService.setRouteStorage(course);
     this.router.navigate(['courses', course.id]);
+  }
+
+  public switchDisplayMode(displayMode: string): void {
+    this.contentDisplayMode = displayMode;
   }
 }
