@@ -11,7 +11,7 @@
       </div>
     </section>
     <section class="content--list-contents">
-      <div [class]="'list-contents--course-card ' + contentDisplayMode" *ngFor="let course of courses">
+      <div [class]="'cursor-pointer list-contents--course-card ' + contentDisplayMode" *ngFor="let course of courses" (click)="openCourse(course)">
         <img class="course-card--image" src="https://picsum.photos/500/350" />
         <div class="course-card--content">
           <h2 class="course-card--title">{{ course.title }}</h2>

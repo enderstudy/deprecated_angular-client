@@ -1,20 +1,25 @@
-<div class="row">
-    <div class="col-sm-12">
-        <div class="iframe-container">
-            <iframe src="https://www.youtube.com/embed/2r8Aua04AyQ" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </div>
-    <div class="col-sm-12">
-        <div class="row">
-            <div class="col-sm-4 text-left">
-                Back a lesson
+<div class="container">
+    <main [class]="'content ' + displayMode">
+        <section class="content--player-controls">
+            <div class="controls--display-modes">
+                <span class="display-modes--label">Video Display Mode</span>
+                <i class="fas fa-expand" [ngClass]="{'active': (displayMode == 'wide')}" (click)="setDisplayMode('wide')"></i>
+                <i class="fas fa-compress" [ngClass]="{'active': (displayMode == 'narrow')}" (click)="setDisplayMode('narrow')"></i>
             </div>
-            <div class="col-sm-4 text-center">
-                Lesson n of {{ course.lessons.length }}
+        </section>
+        <section class="content--player">
+            <div class="player--iframe-container" *ngIf="loading">
+                <app-loading-indicator [state]="loading"></app-loading-indicator>
             </div>
-            <div class="col-sm-4 text-right">
-                Next lesson
+            <div class="player--iframe-container" *ngIf="!loading && lesson">
+                <iframe [src]="embedUrl()" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-        </div>
-    </div>
+        </section>
+        <section class="content--description">
+            <div class="description--content" *ngIf="lesson">
+                <h2 class="content--title">{{ lesson.name }}</h2>
+                <p class="content--description">{{ lesson.description }}</p>
+            </div>
+        </section>
+    </main>
 </div>

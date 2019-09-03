@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { pluck } from 'rxjs/operators';
 
 @Injectable()
 export class LessonService {
@@ -9,6 +11,12 @@ export class LessonService {
   constructor(
     private http: HttpClient
   ) { }
+
+  public getLesson(id: string): Observable<any> {
+    return this.http.get(`//localhost:5000/api/lessons/${id}`).pipe(
+      pluck('data')
+    );
+  }
 
   public getRouteStorage(): any {
     return this.routeStorage;
