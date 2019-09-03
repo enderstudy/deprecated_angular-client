@@ -36,6 +36,10 @@
             display: inline-block;
             margin-right: 24px;
 
+            &.active > a {
+                color: $purple;
+            }
+
             a {
                 font-size: 16px;
                 color: #555;

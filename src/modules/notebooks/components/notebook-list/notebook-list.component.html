@@ -1,0 +1,34 @@
+<div class="container">
+    <aside class="filters">
+        <app-tags-filter></app-tags-filter>
+    </aside>
+    <main class="content">
+        <section class="content--list-controls">
+            <div class="controls--display-modes">
+                <span class="display-modes--label">Display Mode</span>
+                <i class="fas fa-th" [ngClass]="{'active' : (contentDisplayMode == 'grid')}" (click)="switchDisplayMode('grid')"></i>
+                <i class="fas fa-list" [ngClass]="{'active' : (contentDisplayMode == 'list')}" (click)="switchDisplayMode('list')"></i>
+            </div>
+        </section>
+        <section class="content--list-content" *ngIf="loading">
+            <app-loading-indicator [state]="loading"></app-loading-indicator>
+        </section>
+        <section class="content--list-contents" *ngIf="!loading">
+            <div [class]="'cursor-pointer list-contents--notebook-card ' + contentDisplayMode" *ngFor="let notebook of notebooks" (click)="openNotebook(notebook)">
+                <img class="notebook-card--image" src="https://picsum.photos/500/350" />
+                <div class="notebook-card--content" *ngIf="notebook">
+                    <h2 class="notebook-card--title">{{ notebook.name }}</h2>
+                    <p class="notebook-card--teaser">{{ (notebook.description) ? notebook.description.substring(0, 250) : null }}</p>
+                    <p class="notebook-card--teaser" *ngIf="notebook.notes">{{ notebook.notes.length }} Notes</p>
+                    <p class="notebook-card--teaser" *ngIf="notebook.course">{{ notebook.course.title }}</p>
+                </div>
+            </div>
+            <div [class]="'centered cursor-pointer list-contents--notebook-card ' + contentDisplayMode" (click)="openForm()">
+                <div class="notebook-card--content">
+                    <h2 class="notebook-card--title"><i class="fas fa-plus-circle"></i></h2>
+                    <p class="notebook-card--teaser">Create Notebook</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>

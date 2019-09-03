@@ -1,0 +1,27 @@
+<div class="container">
+    <aside class="filters">
+        <div class="filters--input-group">
+            <label class="input-label" class="input-group--label" for="note_search">Search Notes</label>
+            <input type="text" class="input-group--input" name="note_search" />
+        </div>
+    </aside>
+    <main class="content">
+        <h2 *ngIf="notebook && !loading">{{ notebook.name }}</h2>
+        <a [routerLink]="['/notebooks', notebook.id, 'create']">Create</a>
+        <section class="content--list-controls">
+            <div class="controls--display-modes">
+                <span class="display-modes--label">Display Mode</span>
+                <i class="fas fa-th"></i>
+                <i class="fas fa-list"></i>
+            </div>
+        </section>
+        <section class="content-list--contents" *ngIf="notebook && !loading">
+            <div class="list-contents--note-card grid" *ngFor="let note of notebook.notes">
+                <div class="note-card--content">
+                    <h2 class="note-card--title">{{ note.title }}</h2>
+                    <p class="note-card--teaser">{{ note.content }}</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>

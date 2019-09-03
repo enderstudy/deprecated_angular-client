@@ -1,34 +1,23 @@
 <div class="container">
   <aside class="filters">
-      <div class="filters--input-group">
-        <label class="input-label" class="input-group--label" for="tag_search">Search Tags</label>
-        <input type="text" class="input-group--input" name="tag_search" />
+    <app-tags-filter></app-tags-filter>
+  </aside>
+  <main class="content">
+    <section class="content--list-controls">
+      <div class="controls--display-modes">
+        <span class="display-modes--label">Display Mode</span>
+        <i class="fas fa-th" [ngClass]="{'active' : (contentDisplayMode == 'grid')}" (click)="switchDisplayMode('grid')"></i>
+        <i class="fas fa-list" [ngClass]="{'active' : (contentDisplayMode == 'list')}" (click)="switchDisplayMode('list')"></i>
       </div>
-      <ul class="filters--tag-list">
-        <li class="tag-list--item">
-          <span class="item--text">PHP</span>
-          <span class="item--input">
-            <input type="checkbox" />
-          </span>
-        </li>
-      </ul>
-    </aside>
-    <main class="content">
-      <section class="content--list-controls">
-        <div class="controls--display-modes">
-          <span class="display-modes--label">Display Mode</span>
-          <i class="fas fa-th" [ngClass]="{'active' : (contentDisplayMode == 'grid')}" (click)="switchDisplayMode('grid')"></i>
-          <i class="fas fa-list" [ngClass]="{'active' : (contentDisplayMode == 'list')}" (click)="switchDisplayMode('list')"></i>
+    </section>
+    <section class="content--list-contents">
+      <div [class]="'list-contents--course-card ' + contentDisplayMode" *ngFor="let course of courses">
+        <img class="course-card--image" src="https://picsum.photos/500/350" />
+        <div class="course-card--content">
+          <h2 class="course-card--title">{{ course.title }}</h2>
+          <p class="course-card--teaser">{{ course.description }}</p>
         </div>
-      </section>
-      <section class="content--list-contents">
-        <div [class]="'list-contents--course-card ' + contentDisplayMode" *ngFor="let course of courses">
-          <img class="course-card--image" src="https://picsum.photos/500/350" />
-          <div class="course-card--content">
-            <h2 class="course-card--title">{{ course.title }}</h2>
-            <p class="course-card--teaser">{{ course.description }}</p>
-          </div>
-        </div>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 </div>

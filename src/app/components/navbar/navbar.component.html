@@ -21,7 +21,8 @@
     <span class="brand--text">Enderstudy</span>
   </a>
   <ul class="navbar--nav-items" *ngIf="showNav">
-    <li class="nav-items--item"><a href="#">Dashboard</a></li>
-    <li class="nav-items--item"><a href="#">Courses</a></li>
+    <li class="nav-items--item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+    <li class="nav-items--item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/courses']">Courses</a></li>
+    <li class="nav-items--item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"><a [routerLink]="['/notebooks']">Notebooks</a></li>
   </ul>
 </nav>

@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthModule } from '../modules/auth/auth.module';
 import { LandingComponent } from './components/landing/landing.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { NotebooksModule } from 'src/modules/notebooks/notebooks.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppRoutingModule,
     FormsModule,
     CoursesModule,
-    AuthModule
+    AuthModule,
+    NotebooksModule
   ],
   providers: [],
   bootstrap: [AppComponent]

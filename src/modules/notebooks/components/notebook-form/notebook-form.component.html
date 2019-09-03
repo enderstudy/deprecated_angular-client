@@ -1,0 +1,23 @@
+<div class="container">
+    <form class="form" (ngSubmit)="saveNotebook()">
+        <div class="filters--input-group">
+            <label for="notebook_name" class="input-group--label">Notebook Title</label>
+            <input type="text" class="input-group--input" name="notebook_name" id="notebook_name" [(ngModel)]="notebook.name" />
+        </div>
+        <div class="filters--input-group">
+            <label for="notebook_description" class="input-group--label">Description</label>
+            <textarea class="input-group--input" name="notebook_description" id="notebook_description" [(ngModel)]="notebook.description"></textarea>
+        </div>
+        <div class="filters--input-group">
+            <label for="notebook_course" class="input-group--label">Course</label>
+            <select class="input-group--input" disabled *ngIf="!courses"></select>
+            <select class="input-group--input" name="notebook_course" id="notebook_course" [(ngModel)]="notebook.course" *ngIf="courses">
+                <option [ngValue]="{id: course.id}" *ngFor="let course of courses">{{ course.title }}</option>
+            </select>
+        </div>
+        <pre>{{ notebook | json }}</pre>
+        <div class="filters--input-group">
+            <button type="submit" class="button inverse">Submit</button>
+        </div>
+    </form>
+</div>
