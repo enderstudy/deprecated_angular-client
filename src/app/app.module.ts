@@ -10,6 +10,7 @@ import { AuthModule } from '../modules/auth/auth.module';
 import { LandingComponent } from './components/landing/landing.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotebooksModule } from 'src/modules/notebooks/notebooks.module';
+import { AdminModule } from '../modules/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NotebooksModule } from 'src/modules/notebooks/notebooks.module';
     FormsModule,
     CoursesModule,
     AuthModule,
-    NotebooksModule
+    NotebooksModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,48 @@
+<div class="container">
+  <aside class="filters">
+    filter stuff
+  </aside>
+  <main class="content">
+    <section class="content--list-contents">
+      <h2>Unclaimed Courses</h2>
+      <div class="list-content list-contents--unclaimed" *ngIf="!loading">
+        <div class="cursor-pointer list-contents--meta-card grid" *ngFor="let mData of courseMeta | unclaimedCourseMeta:false">
+          <div class="course-card--content">
+            <h2 class="course-card--title">Playlist ID: {{ mData.youtubeId }}</h2>
+            <small class="course-card--teaser">ETag: {{ mData.etag }}</small>
+            <form (ngSubmit)="assignCourseMeta(mData)">
+              <div class="form__element">
+                <label [for]="'course__unclaimed--' + mData.etag">Assign to course:</label>
+                <select [id]="'course__unclaimed--' + mData.etag" name="course" class="input input--select" [(ngModel)]="mData.course">
+                  <option [ngValue]="course.id" *ngFor="let course of courses">{{ course.title }}</option>
+                </select>
+                <button class="button" type="submit">Do the thing</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <h2>Claimed Courses</h2>
+      <div class="list-content list-content--claimed" *ngIf="!loading">
+        <div class="list-content list-contents--claimed" *ngIf="!loading">
+          <div class="cursor-pointer list-contents--meta-card grid" *ngFor="let mData of courseMeta | unclaimedCourseMeta:true">
+            <div class="course-card--content">
+              <h2 class="course-card--title">Playlist ID: {{ mData.youtubeId }}</h2>
+              <small class="course-card--teaser">ETag: {{ mData.etag }}</small>
+              <form (ngSubmit)="assignCourseMeta(mData)">
+                <div class="form__element">
+                  <label [for]="'course__unclaimed--' + mData.etag">Assign to course:</label>
+                  <select [id]="'course__unclaimed--' + mData.etag" name="course" class="input input--select" [(ngModel)]="mData.course">
+                    <option [ngValue]="course.id" *ngFor="let course of courses" [selected]="course.id == mData.courseId">{{ course.title }}</option>
+                  </select>
+                  <button class="button" type="submit">Do the thing</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+</div>

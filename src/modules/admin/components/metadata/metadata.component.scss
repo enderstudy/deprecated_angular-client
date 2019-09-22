@@ -1,0 +1,41 @@
+@import '~src/_variables.scss';
+
+.content {
+  display: flex;
+  padding: 15px;
+  flex: 1;
+  flex-direction: column;
+}
+
+.filters {
+  padding: 15px;
+}
+
+.content-list--controls {
+  display: flex;
+  padding: 16px 0px;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+.content-list--controls {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.list-contents--meta-card {
+  display: flex;
+  margin-right: 12px;
+  margin-top: 24px;
+  padding: 24px;
+  flex: 1;
+  background: #FFF;
+  box-shadow: 0px 2px 10px rgba(59,48,169,0.025);
+  transition: box-shadow 0.25s ease;
+  border-radius: 4px;
+
+  &.grid {
+    flex: 0.33;
+    flex-direction: column;
+  }
+}
