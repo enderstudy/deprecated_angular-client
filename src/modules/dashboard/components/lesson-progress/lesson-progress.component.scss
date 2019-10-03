@@ -1,0 +1,26 @@
+@import '~src/_variables.scss';
+
+.lesson-progress {
+  padding: 6px 16px;
+  border: 1px solid lighten($purple, 50%);
+}
+
+.component__typography {
+  &__lede, &__sub {
+    display: block;
+    width: 100%;
+  }
+
+  &__lede {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $purple;
+  }
+
+  &__sub {
+    font-size: 14px;
+    color: #777;
+    font-weight: normal;
+  }
+}

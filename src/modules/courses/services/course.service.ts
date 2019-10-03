@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Course } from '../models/course.model';
 import { pluck } from 'rxjs/operators';
+import { environment as env } from '../../../environments/environment';
 
 @Injectable()
 export class CourseService {
@@ -16,13 +17,13 @@ export class CourseService {
   ) { }
 
   public getCourseList(): Observable<any> {
-    return this.http.get('//localhost:5000/api/courses').pipe(
+    return this.http.get(env.api.url('courses')).pipe(
       pluck('data')
     );
   }
 
   public getCourse(id: any): Observable<any> {
-    return this.http.get('//localhost:5000/api/courses/' + id).pipe(
+    return this.http.get(env.api.url('courses/:id', {id})).pipe(
       pluck('data')
     );
   }

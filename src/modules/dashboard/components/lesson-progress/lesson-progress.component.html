@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="lesson-progress">
+    <div class="lesson-progress__header">
+      <h1 class="component__typography">
+        <span class="component__typography__lede">Your lesson progress</span>
+        <span class="component__typography__sub">Lessons you've viewed on the platform</span>
+      </h1>
+    </div>
+    <div class="lesson-progress__content --loading" *ngIf="loading">
+      <i class="fas fa-cog fa-spin"></i>
+    </div>
+    <div class="lesson-progress__content --error" *ngIf="!loading && error">
+      <i class="fas fa-exclamation-circle"></i>
+    </div>
+  </div>
+</div>
