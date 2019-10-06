@@ -4,6 +4,7 @@ import { CourseService } from '../../services/course.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LessonService } from '../../services/lesson.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { LessonProgressService } from '../../services/lesson-progress.service';
 
 @Component({
   selector: 'app-course-detail',
@@ -22,6 +23,7 @@ export class CourseDetailComponent implements OnInit {
   constructor(
       private courseService: CourseService,
       private lessonService: LessonService,
+      private lessonProgressService: LessonProgressService,
       private route: ActivatedRoute,
       private router: Router,
       private sanitizer: DomSanitizer
@@ -47,6 +49,11 @@ export class CourseDetailComponent implements OnInit {
 
   public selectLesson(lesson: any): void {
     this.activeLesson = lesson;
+    this.lessonProgressService.recordLessonProgress(lesson.id).subscribe(
+      data => console.log('recorded lesson progress', data),
+      err => console.error(err),
+      () => console.log('done')
+    );
   }
 
   public embedUrl() {

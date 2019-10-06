@@ -12,5 +12,12 @@
     <div class="lesson-progress__content --error" *ngIf="!loading && error">
       <i class="fas fa-exclamation-circle"></i>
     </div>
+    <div class="lesson-progress__content" *ngIf="!loading && !error">
+      <ul class="lesson-progress__list">
+        <li class="lesson-progress__list-item" *ngFor="let progress of lessonProgress">
+          {{ progress.lesson.name }}
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
