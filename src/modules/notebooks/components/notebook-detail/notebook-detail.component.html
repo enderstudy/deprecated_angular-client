@@ -6,8 +6,6 @@
         </div>
     </aside>
     <main class="content">
-        <h2 *ngIf="notebook && !loading">{{ notebook.name }}</h2>
-        <a [routerLink]="['/notebooks', notebook.id, 'create']">Create</a>
         <section class="content--list-controls">
             <div class="controls--display-modes">
                 <span class="display-modes--label">Display Mode</span>
@@ -16,11 +14,42 @@
             </div>
         </section>
         <section class="content-list--contents" *ngIf="notebook && !loading">
+            <div class="list-contents--header">
+              <h2 *ngIf="notebook && !loading">Notebook: {{ notebook.name }}</h2>
+            </div>
             <div class="list-contents--note-card grid" *ngFor="let note of notebook.notes">
                 <div class="note-card--content">
-                    <h2 class="note-card--title">{{ note.title }}</h2>
                     <p class="note-card--teaser">{{ note.content }}</p>
+                    <p class="note-card--lesson">For Lesson: {{ note.lesson.name }}</p>
                 </div>
+            </div>
+            <div class="list-contents--note-card grid --add-new" (click)="showNoteForm()">
+                <div class="note-card--content">
+                    <p class="note-card--teaser">
+                      <i class="fas fa-plus-circle"></i> Add a note
+                    </p>
+                </div>
+            </div>
+            <div class="list-contents--note-card grid --form" *ngIf="showForm">
+              <form (ngSubmit)="createNote()">
+                <div class="form-group">
+                  <label class="input-label" for="name">Name</label>
+                  <input class="input-group input-group--input" type="text" id="name" name="name" [(ngModel)]="newNote.name" />
+                </div>
+                <div class="form-group">
+                  <label class="input-label" for="content">Content</label>
+                  <textarea class="input-group input-group--textarea" id="content" name="content" [(ngModel)]="newNote.content"></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="input-label" for="course">Course</label>
+                  <select class="input-group input-group--select" id="course" name="course" [(ngModel)]="newNote.course">
+                    <option value="1">QWE</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <button class="button" type="submit">Create</button>
+                </div>
+              </form>
             </div>
         </section>
     </main>

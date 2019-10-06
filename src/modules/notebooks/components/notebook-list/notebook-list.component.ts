@@ -10,14 +10,15 @@ import { NotebookService } from '../../services/notebook.service';
 export class NotebookListComponent implements OnInit {
 
   public loading: boolean;
-  public contentDisplayMode: String = "grid";
+  public contentDisplayMode: string;
   public notebooks: any = {};
 
   constructor(
     private router: Router,
     private notebookService: NotebookService
-  ) { 
+  ) {
     this.loading = true;
+    this.contentDisplayMode = 'grid';
   }
 
   ngOnInit() {

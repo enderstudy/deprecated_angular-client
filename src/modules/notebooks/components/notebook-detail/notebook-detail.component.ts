@@ -11,13 +11,21 @@ export class NotebookDetailComponent implements OnInit {
 
   public notebook: any;
   public loading: boolean;
+  public showForm: boolean;
+
+  public newNote: any = {
+    name: null,
+    content: null,
+    course: null
+  };
 
   constructor(
     private notebookService: NotebookService,
     private route: ActivatedRoute,
     private router: Router
-  ) { 
+  ) {
     this.loading = true;
+    this.showForm = true;
   }
 
   ngOnInit() {
@@ -34,6 +42,14 @@ export class NotebookDetailComponent implements OnInit {
       this.notebook = notebook;
       this.loading = false;
     }
+  }
+
+  public showNoteForm(): void {
+    this.showForm = !this.showForm;
+  }
+
+  public createNote(): void {
+
   }
 
 }

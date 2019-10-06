@@ -1,0 +1,98 @@
+@import '~src/_variables.scss';
+
+.content {
+  display: flex;
+  padding: 15px;
+  flex: 1;
+  flex-direction: column;
+}
+
+.filters {
+  padding: 15px;
+}
+
+.content--list-controls {
+  display: flex;
+  padding: 16px 0px;
+  border-bottom: 1px solid #EBEBEB;
+
+  .controls--display-modes {
+    display: flex;
+
+    .display-modes--label {
+      align-self: center;
+      width: 100%;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 500;
+      color: #777;
+      margin-right: 14px;
+    }
+
+    .fas {
+      cursor: pointer;
+      margin-right: 20px;
+
+      &:active {
+        color: $purple;
+      }
+    }
+  }
+}
+
+.content-list--contents {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .list-contents--header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .list-contents--note-card {
+    display: flex;
+    margin-right: 12px;
+    margin-top: 24px;
+    padding: 16px;
+    flex: 1;
+    background: #FFF;
+    box-shadow: 0px 2px 10px rgba(59,84,169,0.025);
+    transition: box-shadow 0.25s ease;
+    border-radius: 4px;
+
+    &.--add-new {
+      cursor: pointer;
+      color: $green;
+    }
+
+    .note-card--content {
+      .note-card--teaser {
+        margin: 0;
+        white-space: pre-line;
+      }
+
+      .note-card--lesson {
+        font-size: 12px;
+        color: #777;
+        text-transform: uppercase;
+        padding-top: 6px;
+        border-top: 1px solid #EBEBEB;
+        margin-bottom: 0;
+      }
+    }
+
+    &.grid {
+      flex: 0.33;
+      flex-direction: column;
+    }
+
+    &.list {
+      flex: auto;
+      flex-direction: row;
+    }
+  }
+}
