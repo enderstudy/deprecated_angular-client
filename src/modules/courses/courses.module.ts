@@ -9,10 +9,12 @@ import { LessonService } from './services/lesson.service';
 import { SharedModule } from '../shared/shared.module';
 import { CourseDetailComponent } from './components/course-detail/course-detail.component';
 import { AuthInterceptor } from '../shared/interceptors/auth.interceptor';
-import { CoursePlayerComponent } from './components/course-player/course-player.component';
 
 @NgModule({
-  declarations: [CourseListComponent, CourseDetailComponent, CoursePlayerComponent],
+  declarations: [
+    CourseListComponent,
+    CourseDetailComponent
+  ],
   imports: [
     CommonModule,
     HttpClientModule,

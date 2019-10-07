@@ -1,47 +1,43 @@
-<div class="row" *ngIf="course">
-  <div class="col-sm-4 text-center">
-    <div class="card">
-      <img class="card-img-top" src="https://picsum.photos/1280/800" class="img-fluid" />
-      <div class="card-body">
-        <h5 class="card-title">{{ course.title }}</h5>
-        <ul>
-          <li>Created: {{ course.createdAt | date:'longDate' }}</li>
-          <li>Last Updated: {{ course.updatedAt | date:'longDate' }}</li>
-          <li>Category: {{ (course.category) ? course.category.name : 'Uncategorised' }}</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-8">
-    <div class="row">
-      <div class="col-sm-12">
-        <ul class="course-tabs">
-          <li class="course-tab-item" [ngClass]="{'active': activeTab == 'description'}" (click)="changeTab('description')"><span class="text-primary">About</span></li>
-          <li class="course-tab-item" [ngClass]="{'active': activeTab == 'content'}" (click)="changeTab('content')"><span class="text-primary">Lessons</span></li>
-        </ul>
-      </div>
-      <div class="col-sm-12">
-        <div class="col-sm-12 tab-content" *ngIf="activeTab == 'description'">
-          <p class="ws-pre-line">{{ course.description }}</p>
+<div class="container">
+  <aside class="meta">
+    <h1 class="meta__lede" *ngIf="course">
+      <span class="lede__main">{{ course.title }}</span>
+      <span class="lede__sub">{{ course.description }}</span>
+    </h1>
+    <div class="meta__lessons" *ngIf="course">
+      <b class="lessons__lede">Lessons</b>
+      <div class="meta__lesson__item" *ngFor="let lesson of course.lessons" (click)="selectLesson(lesson)" [ngClass]="{
+            'active': activeLesson && activeLesson.id === lesson.id
+         }"
+      >
+        <div class="meta__lesson__item__left">
+          <i class="fas fa-play-circle"></i>
         </div>
-        <div class="col-sm-12 no-gutters tab-content" *ngIf="activeTab == 'content'">
-          <div class="list-group">
-            <div class="list-group-item" *ngFor="let lesson of course.lessons; let i = index">
-              <div class="row">
-                <div class="col-sm-10">
-                  <b>{{ lesson.name }}</b>
-                  <p class="ws-pre-line">{{ lesson.description }}</p>
-                </div>
-                <div class="col-sm-2">
-                  <a class="btn" (click)="openPlayer(lesson)">
-                    <i class="fas fa-play-circle"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="meta__lesson__item__right">
+          <span class="lesson__title">{{ lesson.name }}</span>
         </div>
       </div>
     </div>
-  </div>
-</div>`
+  </aside>
+  <main class="content">
+    <section class="content--list-player">
+      <section class="content--player-controls">
+        <div class="controls--display-modes">
+          <span class="display-modes--label">Video Display Mode</span>
+          <i class="fas fa-expand" [ngClass]="{'active': (displayMode == 'wide')}" (click)="setDisplayMode('wide')"></i>
+          <i class="fas fa-compress" [ngClass]="{'active': (displayMode == 'narrow')}" (click)="setDisplayMode('narrow')"></i>
+        </div>
+      </section>
+      <section class="content--player">
+        <div class="content--player--no-lesson" *ngIf="!activeLesson">
+          <span class="textface">¯\_(ツ)_/¯</span>
+          <span class="lede">No lesson selected</span>
+          <span class="sub">Select a lesson from the sidebar to get started</span>
+        </div>
+        <div class="player--iframe-container" *ngIf="activeLesson">
+          <iframe [src]="embedUrl()" *ngIf="activeLesson" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </section>
+    </section>
+  </main>
+</div>

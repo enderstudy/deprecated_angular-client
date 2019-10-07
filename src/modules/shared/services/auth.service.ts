@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
+import { environment as env } from '../../../environments/environment';
 
 @Injectable()
 export class AuthService {
@@ -11,17 +12,17 @@ export class AuthService {
   ) {}
 
   public login(email: string, password: string): Observable<any> {
-    return this.http.post('//localhost:5000/api/auth/login', {email, password}).pipe(
+    return this.http.post(env.api.url('auth/login'), {email, password}).pipe(
       pluck('data')
     );
   }
 
   public refresh(): Observable<any>  {
-    return this.http.post('//localhost:5000/api/auth/refresh', {Code: this.getRefreshToken()});
+    return this.http.post(env.api.url('auth/refresh'), {Code: this.getRefreshToken()});
   }
 
   public register(email: string, password: string, username: string): Observable<any> {
-    return this.http.post('//localhost:5000/api/users', {email, password, username});
+    return this.http.post(env.api.url('users'), {email, password, username});
   }
 
   public getAccessToken() {

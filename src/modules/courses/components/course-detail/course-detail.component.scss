@@ -1,0 +1,153 @@
+@import '~src/_variables.scss';
+
+.meta {
+  flex: 0.25;
+  padding: 15px;
+
+  &__lede {
+    display: block;
+
+    .lede__main, .lede__sub {
+      display: block;
+      width: 100%;
+    }
+
+    .lede__main {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .lede__sub {
+      font-weight: normal;
+      font-size: 14px;
+    }
+  }
+
+  &__lessons {
+    padding-top: 16px;
+    border-top: 1px solid #EBEBEB;
+
+    .lessons__lede {
+      display: block;
+      width: 100%;
+      text-transform :uppercase;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 16px;
+      color: $purple;
+    }
+
+    .meta__lesson__item {
+      display: flex;
+      flex-direction: row;
+      padding: 12px;
+      background: #F8F8F8;
+      border: 1px solid darken(#F8F8F8, 2.5%);
+      cursor: pointer;
+      user-select: none;
+
+      &.active, &:hover {
+        .meta__lesson__item__left {
+          .fas {
+            color: $purple;
+          }
+        }
+      }
+
+      &__left {
+        width: 25px;
+
+        .fas {
+          color: #777;
+        }
+      }
+
+      &__right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+      }
+    }
+  }
+}
+
+.content {
+  flex: 1;
+  padding: 15px;
+
+  .content--player-controls {
+    display: flex;
+    padding: 16px 0px;
+    border-bottom: 1px solid #EBEBEB;
+
+    .controls--display-modes {
+      display: flex;
+
+      .display-modes--label {
+        align-self: center;
+        width: 100%;
+        margin-bottom: 2px;
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 500;
+        color: #777;
+        margin-right: 14px;
+      }
+
+      .fas {
+        cursor: pointer;
+        margin-right: 20px;
+
+        &.active {
+          color: $purple;
+        }
+      }
+    }
+  }
+
+  .content--player--no-lesson {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    .textface, .lede, .sub {
+      display: block;
+      width: 100%;
+      margin-top: 32px;
+    }
+
+    .textface {
+      color: #EBEBEB;
+      font-weight: bold;
+      font-size: 32px;
+    }
+
+    .lede {
+      color: #777;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .sub {
+      color: $purple;
+      font-weight: normal;
+      font-size: 16px;
+    }
+  }
+
+  .player--iframe-container {
+    position: relative;
+    overflow: hidden;
+    padding: 50% 50% 0 50%;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
+}

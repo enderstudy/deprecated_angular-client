@@ -1,0 +1,37 @@
+@import '~src/_variables.scss';
+
+.container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .form__text {
+    flex: 0.5;
+    border-bottom: 1px solid #EBEBEB;
+    margin-bottom: 15px;
+
+    .form__text--main {
+      display: block;
+
+      * {
+        display: block;
+        width: 100%;
+      }
+
+      .main--lede {
+        color: $purple;
+        font-size: 42px;
+        font-weight: 100;
+        text-transform: uppercase;
+      }
+
+      .main--sub {
+        color: #666;
+        font-size: 18px;
+        font-weight: 400;
+        letter-spacing: 0.75px;
+      }
+    }
+  }
+}
