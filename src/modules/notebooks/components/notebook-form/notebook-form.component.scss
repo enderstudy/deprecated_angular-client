@@ -19,13 +19,13 @@
         text-transform: uppercase;
         font-size: 11px;
         font-weight: 500;
-        color: #777;
+        color: $grey-1;
     }
 
     .input-group--input {
         width: 100%;
-        background: #FFF;
-        border: 1px solid #EBEBEB;
+        background: $white-1;
+        border: 1px solid $white-2;
         border-radius: 4px;
         padding: 8px 16px;
         transition: border-color 0.3s;

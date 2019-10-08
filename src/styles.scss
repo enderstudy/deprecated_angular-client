@@ -8,11 +8,11 @@
 body {
   font-family:'IBM Plex Sans', sans-serif;
   border-top:  5px solid $purple;
-  background: $light-grey;
+  background: $white-3;
 }
 
 .button {
-  background: $white;
+  background: $white-1;
   color: $purple;
   padding: 6px 12px;
   appearance: none;
@@ -22,7 +22,7 @@ body {
 
   &.inverse {
     background: $purple;
-    color: $white;
+    color: $white-1;
   }
 }
 

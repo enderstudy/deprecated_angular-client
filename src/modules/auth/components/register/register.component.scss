@@ -8,7 +8,7 @@
 
   .form__text {
     flex: 0.5;
-    border-bottom: 1px solid #EBEBEB;
+    border-bottom: 1px solid $white-2;
     margin-bottom: 15px;
 
     .form__text--main {
@@ -27,7 +27,7 @@
       }
 
       .main--sub {
-        color: #666;
+        color: $grey-2;
         font-size: 18px;
         font-weight: 400;
         letter-spacing: 0.75px;

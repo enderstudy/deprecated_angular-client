@@ -25,7 +25,7 @@
 
   &__lessons {
     padding-top: 16px;
-    border-top: 1px solid #EBEBEB;
+    border-top: 1px solid $white-2;
 
     .lessons__lede {
       display: block;
@@ -42,7 +42,7 @@
       flex-direction: row;
       padding: 12px;
       background: #F8F8F8;
-      border: 1px solid darken(#F8F8F8, 2.5%);
+      border: 1px solid darken($white-3, 2.5%);
       cursor: pointer;
       user-select: none;
 
@@ -58,7 +58,7 @@
         width: 25px;
 
         .fas {
-          color: #777;
+          color: $grey-1;
         }
       }
 
@@ -79,7 +79,7 @@
   .content--player-controls {
     display: flex;
     padding: 16px 0px;
-    border-bottom: 1px solid #EBEBEB;
+    border-bottom: 1px solid $white-2;
 
     .controls--display-modes {
       display: flex;
@@ -118,13 +118,13 @@
     }
 
     .textface {
-      color: #EBEBEB;
+      color: $white-2;
       font-weight: bold;
       font-size: 32px;
     }
 
     .lede {
-      color: #777;
+      color: $grey-1;
       font-weight: bold;
       font-size: 20px;
     }
