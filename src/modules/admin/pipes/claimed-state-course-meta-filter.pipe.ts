@@ -6,9 +6,9 @@ import { CourseMetadata } from '../components/metadata/models/course-metdata.mod
  * unclaimed (aka - only course meta items with no course)
  */
 @Pipe({
-  name: 'unclaimedCourseMeta'
+  name: 'claimedStateCourseMetaFilter'
 })
-export class UnclaimedCourseMetaPipe implements PipeTransform {
+export class ClaimedStateCourseMetaFilterPipe implements PipeTransform {
 
   transform(collection: CourseMetadata[], inverse: boolean): any {
 
