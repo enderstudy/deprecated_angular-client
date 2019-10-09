@@ -3,21 +3,19 @@ import { CourseMetadata } from '../components/metadata/models/course-metdata.mod
 
 /**
  * Limits a collection of Course Metadata items to only those that are
- * unclaimed (aka - only course meta items with no course)
+ * clamed/unclaimed (aka - only course meta items with some courses/no course)
  */
 @Pipe({
   name: 'claimedStateCourseMetaFilter'
 })
 export class ClaimedStateCourseMetaFilterPipe implements PipeTransform {
 
-  transform(collection: CourseMetadata[], inverse: boolean): any {
-
-    if (!inverse) {
+  transform(collection: CourseMetadata[], claimedState: boolean): CourseMetadata[] {
+    if (!claimedState) {
       return collection.filter((courseMeta) => {
         return courseMeta.courseId === null;
       });
     } else {
-      console.log('inverse is true');
       return collection.filter((courseMeta) => {
         return courseMeta.courseId !== null;
       });
