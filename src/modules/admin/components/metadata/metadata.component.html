@@ -6,7 +6,7 @@
     <section class="content--list-contents">
       <h2>Unclaimed Courses</h2>
       <div class="list-content list-contents--unclaimed" *ngIf="!loading">
-        <div class="cursor-pointer list-contents--meta-card grid" *ngFor="let mData of courseMeta | unclaimedCourseMeta:false">
+        <div class="cursor-pointer list-contents--meta-card grid" *ngFor="let mData of courseMeta | claimedStateCourseMetaFilter:false">
           <div class="course-card--content">
             <h2 class="course-card--title">Playlist ID: {{ mData.youtubeId }}</h2>
             <small class="course-card--teaser">ETag: {{ mData.etag }}</small>
@@ -25,7 +25,7 @@
       <h2>Claimed Courses</h2>
       <div class="list-content list-content--claimed" *ngIf="!loading">
         <div class="list-content list-contents--claimed" *ngIf="!loading">
-          <div class="cursor-pointer list-contents--meta-card grid" *ngFor="let mData of courseMeta | unclaimedCourseMeta:true">
+          <div class="cursor-pointer list-contents--meta-card grid" *ngFor="let mData of courseMeta | claimedStateCourseMetaFilter:true">
             <div class="course-card--content">
               <h2 class="course-card--title">Playlist ID: {{ mData.youtubeId }}</h2>
               <small class="course-card--teaser">ETag: {{ mData.etag }}</small>
